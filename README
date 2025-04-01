@@ -69,18 +69,6 @@ python eval/eval_decompile.py \
 ### Security Hardening
 To generate the LLM response:
 ```bash
-python eval/eval_decompile.py \
-    --output_dir $OUTPUT_DIR \
-    --test_file $TEST_FILE \
-    --output_file $OUTPUT_FILE \
-    --do_sample True \
-    --num_samples 1 \
-    --num_threads 4 \
-    --method $METHOD \
-    --temperature 1 \
-    --fine_tuned_model $MODEL \
-    --base_url $BASE_URL \
-    --api_key $API_KEY
 python eval/eval_sec.py \
     --model_path $MODEL_PATH \
     --n_gpu 4 \
@@ -90,7 +78,9 @@ python eval/eval_sec.py \
     --num_gen 50 \
     --output_name $OUTPUT_DIR \
     --eval_type edit \
-    --output_file $OUTPUT_FILE
+    --output_file $OUTPUT_FILE \
+    --base_url $BASE_URL \
+    --api_key $API_KEY
 ```
 
 To evaluate the security hardenig, please refer to [CWEval](https://github.com/Co1lin/CWEval) to set up the environment.
