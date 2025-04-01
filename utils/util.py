@@ -40,10 +40,6 @@ def build_model(args):
     else:
         if args.online:
             from openai import OpenAI
-            # TOGETHER_API_KEY="3e62864884b295dd308a6c5d02c2e0564dca526527e9f15228be68687bbe6c65"
-            # client = OpenAI(api_key=TOGETHER_API_KEY,
-            #     base_url='https://api.together.xyz',
-            # )
             openai_api_key = "EMPTY"
             openai_api_base = "http://0.0.0.0:8000/v1"
             client = OpenAI(
