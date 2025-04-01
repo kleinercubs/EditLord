@@ -2,10 +2,10 @@
 
 ![workflow](imgs/workflow.png)
 
-## Preprocess
+## Augmentation Process
 See files in `preprocess/` for more details.
 
-## Finetuning
+## Finetuning for Editing Process
 ```bash
 accelerate launch finetune_codellama.py \
     --base_model $BASE_MODEL \
