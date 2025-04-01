@@ -27,9 +27,9 @@ import json
 
 def train(
     # model/data params
-    base_model: str = "codellama/CodeLlama-7b-hf", 
-    data_path: str = "data/code_data",
-    output_dir: str = "./code_opt/13b-test",
+    base_model: str = "", 
+    data_path: str = "",
+    output_dir: str = "",
     # training hyperparams
     batch_size: int = 128,
     micro_batch_size: int = 2,
@@ -41,12 +41,11 @@ def train(
     add_eos_token: bool = True,
     group_by_length: bool = False,  
     # wandb params
-    wandb_project: str = "code-llama",
+    wandb_project: str = "",
     wandb_run_name: str = "",
     wandb_watch: str = "",  # options: false | gradients | all
     wandb_log_model: str = "",  # options: false | true
     resume_from_checkpoint: str = None,  # either training checkpoint or final adapter
-    prompt_template_name: str = "code_opt",  # The prompt template to use, will default to code_opt.
     use_wandb: bool = True, # if True, will use wandb if wandb_project is set
     # training data and prompt template
     train_name: str = "train.jsonl",
@@ -56,8 +55,8 @@ def train(
     with_speedup_bin: bool = False,   # if True, we use templates/code_opt_w_speedup_bin.json
     task: str = "performance",
     method: str = "baseline",
-    src_code_length: int = 0,
-    tgt_code_length: int = 0,
+    src_code_length: int = 2000,
+    tgt_code_length: int = 2000,
 ):
     def seed_everything(seed):
         random.seed(seed)
@@ -91,7 +90,6 @@ def train(
             f"wandb_watch: {wandb_watch}\n"
             f"wandb_log_model: {wandb_log_model}\n"
             f"resume_from_checkpoint: {resume_from_checkpoint or False}\n"
-            f"prompt template: {prompt_template_name}\n"
             f"Train File: {os.path.join(data_path, train_name)}\n"
             f"Val File: {os.path.join(data_path, val_name)}\n"
             f"Test File: {os.path.join(data_path, test_name)}\n"
