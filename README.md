@@ -4,6 +4,8 @@
 
 ## Augmentation Process
 See files in `preprocess/` for more details.
+Transformation rules could be found [here](https://drive.google.com/drive/folders/1_r1sPe_8nKpmUQttGP4DRZTgdm1CiJg2?usp=drive_link).
+
 
 ## Finetuning for Editing Process
 ```bash
